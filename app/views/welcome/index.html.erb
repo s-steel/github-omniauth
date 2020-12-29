@@ -1,6 +1,10 @@
 <% if current_user %>
   <h1>Welcome <%= current_user.name %>!</h1>
   <%= link_to 'Log Out', '/logout' %>
+  <h3>Repositories:</h3>
+  <% @repos.each do |repo| %>
+    <p><%= repo.name %></p>
+  <% end %>
 <% else%>
   <%= link_to 'Sign in with Github', '/auth/github' %>
 <% end %>
